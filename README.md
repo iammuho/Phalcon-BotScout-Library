@@ -19,7 +19,9 @@
   * On controller get instance with post params
   
   ```
-  $botscout = new Botscout(array('username' => $this->request->getPost('username'),'email' => $this->request->getPost('email')));
+  $botscout = new Botscout(array(
+  'username' => $this->request->getPost('username'),
+  'email' => $this->request->getPost('email')));
   $botscout->checkBot();
   ```
   
