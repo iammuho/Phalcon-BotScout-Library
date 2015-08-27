@@ -33,7 +33,7 @@ class BotScout extends Phalcon\Mvc\User\Component
 
 
 	//API Key
-	private $APIKEY = 'MnaxIBqkOWfPg84';
+	private $APIKEY;
 
 
 	/**
@@ -46,7 +46,8 @@ class BotScout extends Phalcon\Mvc\User\Component
     {
         $this->XUSER = $data['username'];
         $this->XMAIL = $data['email'];
-		$this->XIP 	= ($this->config->application->status == "Development") ? "78.189.144.81" : $_SERVER['REMOTE_ADDR'];
+        $this->APIKEY = $this->config->botscout->api_key;
+		$this->XIP 	= ($this->config->application->status == "Development") ? $this->config->botscout->test_ip : $_SERVER['REMOTE_ADDR'];
 		$this->apiquery = "http://botscout.com/test/?multi&mail=".$this->XMAIL."&ip=".$this->XIP;
 
     }
